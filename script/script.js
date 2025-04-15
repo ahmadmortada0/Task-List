@@ -5,9 +5,9 @@ const students = [
     { name: "Charlie", scores: [100, 100, 100] }
 ];
 
-function generateReports(students) { //The time compelixty of this program is O(n^2)
+function generateReports(students) { //The time compelixty of this program is O(n) 
     let studentsGrades = [];
-    for (let i = 0; i < students.length; i++) {//O(n)
+    for (let i = 0; i < students.length; i++) {//O(n) 
         let student = { name: students[i].name };
         let avgScore = 0;
         let scores = students[i].scores;
@@ -19,15 +19,15 @@ function generateReports(students) { //The time compelixty of this program is O(
         avgScore = avgScore / scores.length;
 
         let grade = '';
-        if (avgScore >= 90) {
+        if (avgScore >= 90) { //o(1)
             grade = "A";
-        } else if (avgScore >= 80) {
+        } else if (avgScore >= 80) {//o(1)
             grade = "B";
-        } else if (avgScore >= 70) {
+        } else if (avgScore >= 70) {//o(1)
             grade = "C";
-        } else if (avgScore >= 60) {
+        } else if (avgScore >= 60) {//o(1)
             grade = "D";
-        } else {
+        } else {//o(1)
             grade = "F";
         }
 
@@ -44,7 +44,8 @@ console.log(generateReports(students));
 
 
 //Question2
- class BankAccount{
+//The time compelixty of this program is O(1)
+class BankAccount{
      constructor(ownerName,initialBalance) {
         this.ownerName=ownerName;
         this.initialBalance=initialBalance;
@@ -54,18 +55,18 @@ console.log(generateReports(students));
         console.log(`You put ${amount} in your account ${this.ownerName} `)
     }
     withdraw(amount){
-        if (this.initialBalance>amount){
+        if (this.initialBalance>amount){//o(1)
             this.initialBalance-=amount
             console.log(`You took ${amount} from your account ${this.ownerName}  `)
         } 
-        else{
+        else{//o(1)
             console.log("No enough amount in the account ")
         }
     }
     transfer(account,amount){
-        if(this.initialBalance>amount){
-            this.withdraw(amount)
-            account.deposit(amount)
+        if(this.initialBalance>amount){//o(1)
+            this.withdraw(amount)//o(1)
+            account.deposit(amount)//o(1)
             console.log(`${this.ownerName} done transfering ${amount} to the reciever ${account.ownerName}`)
         }
         else{
