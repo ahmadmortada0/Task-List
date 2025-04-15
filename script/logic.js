@@ -6,6 +6,7 @@ function addElement(){
     const text = document.createTextNode(value)
     li.appendChild(text)
     ul.appendChild(li)
+    li.classList.add("style-li")
     li.addEventListener("click", deleteElement);
 }
 
