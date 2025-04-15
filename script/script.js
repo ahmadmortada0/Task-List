@@ -44,5 +44,45 @@ console.log(generateReports(students));
 
 
 //Question2
-// class BankAccount{}
-
+ class BankAccount{
+     constructor(ownerName,initialBalance) {
+        this.ownerName=ownerName;
+        this.initialBalance=initialBalance;
+    }
+    deposit(amount){
+        this.initialBalance+=amount
+        console.log(`You put ${amount} in your account ${this.ownerName} `)
+    }
+    withdraw(amount){
+        if (this.initialBalance>amount){
+            this.initialBalance-=amount
+            console.log(`You took ${amount} from your account ${this.ownerName}  `)
+        } 
+        else{
+            console.log("No enough amount in the account ")
+        }
+    }
+    transfer(account,amount){
+        if(this.initialBalance>amount){
+            this.withdraw(amount)
+            account.deposit(amount)
+            console.log(`${this.ownerName} done transfering ${amount} to the reciever ${account.ownerName}`)
+        }
+        else{
+            console.log("the transfer aint done :No enough amount in the account")
+        }
+    }
+    getSummary(){
+        return `${this.ownerName} balance is ${this.initialBalance}`
+    }
+ }
+const taha = new BankAccount("taha",500)
+const ahmad = new BankAccount("ahmad",1500)
+const nabiha = new BankAccount('Nabiha',100)
+taha.withdraw(200)
+nabiha.withdraw(1000)
+taha.deposit(1000)
+ahmad.transfer(taha,200)
+nabiha.transfer(taha,120)
+console.log(taha.getSummary())
+console.log(ahmad.getSummary())

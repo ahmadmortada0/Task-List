@@ -71,3 +71,6 @@ body {
   .task-list li:hover {
     background: #e0e0e0;
   }
+  .invisible{
+    display: none;
+  }
