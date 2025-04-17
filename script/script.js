@@ -49,15 +49,20 @@ class BankAccount{
      constructor(ownerName,initialBalance) {
         this.ownerName=ownerName;
         this.initialBalance=initialBalance;
+        this.transtions=[]
     }
     deposit(amount){
         this.initialBalance+=amount
         console.log(`You put ${amount} in your account ${this.ownerName} `)
+        this.transtions.push(`${amount} is deposited`)
+        
     }
     withdraw(amount){
         if (this.initialBalance>amount){//o(1)
             this.initialBalance-=amount
             console.log(`You took ${amount} from your account ${this.ownerName}  `)
+           this. transtions.push(`${amount} is withdrew`)
+
         } 
         else{//o(1)
             console.log("No enough amount in the account ")
@@ -76,6 +81,7 @@ class BankAccount{
     getSummary(){
         return `${this.ownerName} balance is ${this.initialBalance}`
     }
+
  }
 const taha = new BankAccount("taha",500)
 const ahmad = new BankAccount("ahmad",1500)
@@ -87,3 +93,4 @@ ahmad.transfer(taha,200)
 nabiha.transfer(taha,120)
 console.log(taha.getSummary())
 console.log(ahmad.getSummary())
+console.log(taha.transtions)
