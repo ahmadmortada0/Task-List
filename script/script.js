@@ -31,6 +31,7 @@ function generateReports(students) { //The time compelixty of this program is O(
             grade = "F";
         }
 
+
         student.Score = avgScore;
         student.grade = grade;
 
@@ -81,6 +82,10 @@ class BankAccount{
     getSummary(){
         return `${this.ownerName} balance is ${this.initialBalance}`
     }
+    printHistory(){
+        console.log(this.transtions)
+    }
+
 
  }
 const taha = new BankAccount("taha",500)
@@ -93,4 +98,6 @@ ahmad.transfer(taha,200)
 nabiha.transfer(taha,120)
 console.log(taha.getSummary())
 console.log(ahmad.getSummary())
-console.log(taha.transtions)
+taha.printHistory()
+ahmad.printHistory()
+nabiha.printHistory()
