@@ -13,3 +13,4 @@ function addElement(){
 function deleteElement(li){
     li.target.remove()
 }
+
